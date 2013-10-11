@@ -1,7 +1,7 @@
 VERSION = 3
 PATCHLEVEL = 4
 SUBLEVEL = 10
-EXTRAVERSION =
+EXTRAVERSION = -Sofa_King_Android
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*
@@ -247,7 +247,7 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -Wno-error=implicit-function-declaration
 HOSTCXXFLAGS = -O2
 
 # Decide whether to build built-in, modular, or both.

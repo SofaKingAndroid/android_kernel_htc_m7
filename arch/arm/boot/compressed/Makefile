@@ -24,6 +24,8 @@ endif
 
 AFLAGS_head.o := -DTEXT_OFFSET=$(TEXT_OFFSET)
 AFLAGS_head.o += -Wa,-march=armv7-a$(plus_sec)
+AFLAGS_misc.o +=-Wa,-march=armv7-a$(plus_sec)
+AFLAGS_decompress.o += -Wa,-march=armv7-a$(plus_sec)
 HEAD = head.o
 
 AFLAGS_misc.o +=-Wa,-march=armv7-a$(plus_sec)
@@ -167,6 +169,7 @@ $(obj)/lib1funcs.S: $(srctree)/arch/$(SRCARCH)/lib/lib1funcs.S
 AFLAGS_ashldi3.o +=-Wa,-march=armv7-a$(plus_sec)
 ashldi3 = $(obj)/ashldi3.o
 
+AFLAGS_ashldi3.o +=-Wa,-march=armv7-a$(plus_sec)
 $(obj)/ashldi3.S: $(srctree)/arch/$(SRCARCH)/lib/ashldi3.S
 	$(call cmd,shipped)
 
@@ -196,6 +199,7 @@ $(obj)/vmlinux: $(obj)/vmlinux.lds $(obj)/$(HEAD) $(obj)/$(MISC) $(obj)/$(DECOMP
 	$(call if_changed,ld)
 	@$(check_for_bad_syms)
 
+AFLAGS_piggy.$(suffix_y).o += -Wa,-march=armv7-a$(plus_sec)
 $(obj)/piggy.$(suffix_y): $(obj)/../Image FORCE
 	$(call if_changed,$(suffix_y))
 
