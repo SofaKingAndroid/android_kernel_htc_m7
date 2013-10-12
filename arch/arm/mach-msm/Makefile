@@ -6,6 +6,7 @@ obj-y += timer.o
 endif
 obj-y += clock.o clock-voter.o clock-dummy.o
 obj-y += modem_notifier.o subsystem_map.o
+obj-$(CONFIG_CPU_FREQ_MSM) += cpufreq.o
 obj-$(CONFIG_DEBUG_FS) += nohlt.o clock-debug.o
 obj-$(CONFIG_KEXEC) += msm_kexec.o
 
@@ -470,5 +471,3 @@ obj-$(CONFIG_IO_FOOTPRINT) += io_footprint.o
 #PWR2_ADD, @CPU Sniffer: CPU usage statistics.
 obj-y += htc_cpu_usage_stats.o
 obj-y += htc_lpm.o
-
-obj-$(CONFIG_CPU_FREQ_MSM) += cpufreq.o
